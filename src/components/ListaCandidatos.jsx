@@ -8,26 +8,14 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import getCandidatos from "@/fetchs/getCandidatos"
+import { useState } from "react"
 
 function ListaCandidatos() {
-    // const { candidatos } = getCandidatos();
-    const candidatos = [{
-        correo: "a@hotmail.com",
-        tipoDoc: "DNI",
-        nombre: "Juan",
-        apellido: "Perez",
-        fecha_nacimiento: "1990/01/01",
-        numdoc: "12345678"
-    },
-    {
-        correo: "b@hotmail.com",
-        tipoDoc: "DNI",
-        nombre: "Maria",
-        apellido: "Gomez",
-        fecha_nacimiento: "1990/01/01",
-        numdoc: "12345678"
-    },
-    ]
+    const [candidatos, setCandidatos] = useState([])
+    const intiCandidatos = async () => {
+        setCandidatos(await getCandidatos());
+    }
+    intiCandidatos();
     return (
         <Table className="bg-white">
             <TableCaption>Lista de los candidatos.</TableCaption>
@@ -44,12 +32,12 @@ function ListaCandidatos() {
             <TableBody>
                 {candidatos.map((candidato, i) => (
                     <TableRow key={i}>
-                        <TableCell>{candidato.correo}</TableCell>
-                        <TableCell>{candidato.tipoDoc}</TableCell>
+                        <TableCell>{candidato.usuario}</TableCell>
+                        <TableCell>{candidato.idTipoDocFK}</TableCell>
                         <TableCell>{candidato.nombre}</TableCell>
                         <TableCell>{candidato.apellido}</TableCell>
-                        <TableCell>{candidato.fecha_nacimiento}</TableCell>
-                        <TableCell>{candidato.numdoc}</TableCell>
+                        <TableCell>{candidato.fechaNac}</TableCell>
+                        <TableCell>{candidato.nDoc}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

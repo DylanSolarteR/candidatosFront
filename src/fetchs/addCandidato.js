@@ -1,4 +1,5 @@
 import { rutasAPI } from "@/lib/utils";
+import getCandidatos from "./getCandidatos";
 
 async function addCandidato(correo,
     nombre,
@@ -8,6 +9,11 @@ async function addCandidato(correo,
     numdoc) {
 
     try {
+        const responseGet = await getCandidatos();
+        if (responseGet.some(candidato => candidato.usuario === correo)) {
+            alert("El usuario ya existe");
+            return 0;
+        }
         const response = await fetch(rutasAPI.addCandidato, {
           method: "POST",
           headers: {
@@ -17,19 +23,21 @@ async function addCandidato(correo,
             usuario: correo,
             nombre,
             apellido,
-            tipoDoc,
-            fecha_Nac: fecha_nacimiento,
+            idTipoDocFK: tipoDoc,
+            fechaNac: fecha_nacimiento,
             nDoc:numdoc
           }),
         });
+        alert("Candidato agregado correctamente");
     
-        if (response.ok) {
-          const data = await response.json();
-          return data;
-        } else {
-          console.error("Error en la creación del candidato");
-          return 0;
-        }
+        // if (response.ok) {
+        //   const data = await response.json();
+        //   return data;
+        // } else {
+        //   console.log(response)
+        //   alert("Error al agregar el candidato:\n", response.message);
+        //   return 0;
+        // }
     } catch (error) {
     console.error("Error en la solicitud:", error);
     }
