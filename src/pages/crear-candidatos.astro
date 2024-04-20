@@ -1,0 +1,10 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FormCreacion from "@/components/FormCreacion.jsx";
+---
+
+<BaseLayout>
+  <main class="px-36 py-10 flex flex-col gap-2 justify-center items-center">
+    <FormCreacion client:load />
+  </main>
+</BaseLayout>

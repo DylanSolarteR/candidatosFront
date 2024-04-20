@@ -1,16 +1,50 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+	Card,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<main class="px-36 py-10">
+		<h1 class="text-6xl text-center font-bold p-2 text-sky-900">CRUD</h1>
+		<h2 class="text-4xl text-center font-semibold p-4 text-sky-950">
+			Elige que deseas hacer:
+		</h2>
+		<ul class="flex flex-col gap-20 items-center py-10">
+			<li>
+				<a href="/crear-candidatos"
+					><Card className="text-sky-950 w-[30rem]">
+						<CardHeader className="gap-2">
+							<CardTitle className="text-center text-3xl"
+								>Crear Candidato</CardTitle
+							>
+							<CardDescription className="text-2xl text-center"
+								>Crea un registro en la base de datos de un
+								candidato</CardDescription
+							>
+						</CardHeader>
+					</Card></a
+				>
+			</li>
+			<li>
+				<a href="/leer-candidatos"
+					><Card className="text-sky-950 w-[30rem]">
+						<CardHeader className="gap-2">
+							<CardTitle className="text-center text-3xl"
+								>Revisar lista de Candidatos</CardTitle
+							>
+							<CardDescription className="text-2xl text-center"
+								>Lee los registros de la base de datos de los
+								candidatos</CardDescription
+							>
+						</CardHeader>
+					</Card></a
+				>
+			</li>
+		</ul>
+	</main>
+</BaseLayout>
