@@ -32,12 +32,12 @@ function ListaCandidatos() {
             <TableBody>
                 {candidatos.map((candidato, i) => (
                     <TableRow key={i}>
-                        <TableCell>{candidato.usuario}</TableCell>
-                        <TableCell>{candidato.idTipoDocFK}</TableCell>
-                        <TableCell>{candidato.nombre}</TableCell>
-                        <TableCell>{candidato.apellido}</TableCell>
-                        <TableCell>{candidato.fechaNac}</TableCell>
-                        <TableCell>{candidato.nDoc}</TableCell>
+                        <TableCell>{candidato.USUARIO}</TableCell>
+                        <TableCell>{candidato.IDTIPODOCFK}</TableCell>
+                        <TableCell>{candidato.NOMBRE}</TableCell>
+                        <TableCell>{candidato.APELLIDO}</TableCell>
+                        <TableCell>{candidato.FECHANAC}</TableCell>
+                        <TableCell>{candidato.NDOC}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

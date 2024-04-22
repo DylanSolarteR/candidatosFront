@@ -20,12 +20,12 @@ async function addCandidato(correo,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            usuario: correo,
-            nombre,
-            apellido,
-            idTipoDocFK: tipoDoc,
-            fechaNac: fecha_nacimiento,
-            nDoc:numdoc
+            USUARIO: correo,
+            NOMBRE: nombre,
+            APELLIDO: apellido,
+            IDTIPODOCFK: tipoDoc,
+            FECHANAC: fecha_nacimiento,
+            NDOC:numdoc
           }),
         });
         alert("Candidato agregado correctamente");
